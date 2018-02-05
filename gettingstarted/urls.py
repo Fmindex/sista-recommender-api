@@ -11,7 +11,6 @@ import hello.views
 # url(r'^blog/', include('blog.urls')),
 
 urlpatterns = [
-    url(r'^$', hello.views.index, name='index'),
-    url(r'^db', hello.views.db, name='db'),
-    path('admin/', admin.site.urls),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^api', hello.views.myModel.as_view(), name='my_rest_view'),
 ]
